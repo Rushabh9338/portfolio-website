@@ -1,0 +1,173 @@
+
+import React from 'react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Code, BarChart3, Briefcase, GraduationCap, Award, Users } from 'lucide-react';
+import ParticleBackground from '@/components/ParticleBackground';
+
+const About = () => {
+  const skills = [
+    { category: "Data Analysis", items: ["Python", "SQL", "Power BI", "Tableau", "Excel"], icon: BarChart3 },
+    { category: "Frontend Development", items: ["React", "TypeScript", "JavaScript", "HTML/CSS", "Vue.js"], icon: Code },
+    { category: "Project Management", items: ["Agile", "Scrum", "JIRA", "Confluence", "Risk Management"], icon: Briefcase }
+  ];
+
+  const experience = [
+    {
+      role: "Senior Software Engineer",
+      company: "Tech Corporation",
+      period: "2020 - Present",
+      description: "Led frontend development teams, architected scalable solutions"
+    },
+    {
+      role: "Data Analyst",
+      company: "Analytics Firm",
+      period: "2019 - 2020",
+      description: "Developed data pipelines and visualization dashboards"
+    },
+    {
+      role: "Project Manager",
+      company: "Consulting Group",
+      period: "2018 - 2019",
+      description: "Managed cross-functional teams and delivered complex projects"
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-slate-900 text-white relative">
+      <ParticleBackground />
+      
+      {/* Navigation */}
+      <nav className="fixed top-0 w-full z-50 bg-slate-900/80 backdrop-blur-lg border-b border-slate-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-4">
+            <div className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+              Portfolio
+            </div>
+            <div className="hidden md:flex space-x-8">
+              <a href="/" className="hover:text-cyan-400 transition-colors">Home</a>
+              <a href="/about" className="text-cyan-400">About</a>
+              <a href="/projects" className="hover:text-cyan-400 transition-colors">Projects</a>
+              <a href="/blogs" className="hover:text-cyan-400 transition-colors">Blogs</a>
+              <a href="/contact" className="hover:text-cyan-400 transition-colors">Contact</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+              About Me
+            </h1>
+            <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+              A versatile professional combining technical expertise in software engineering and data analysis 
+              with strategic project management skills to deliver impactful solutions.
+            </p>
+          </div>
+
+          {/* Bio Section */}
+          <div className="grid lg:grid-cols-2 gap-12 mb-16">
+            <Card className="bg-slate-800/50 border-slate-700">
+              <CardHeader>
+                <CardTitle className="text-2xl text-cyan-400 flex items-center">
+                  <Users className="w-6 h-6 mr-2" />
+                  Professional Journey
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4 text-slate-300">
+                <p>
+                  With a unique blend of technical and business acumen, I bridge the gap between 
+                  complex data insights and strategic business decisions. My journey spans from 
+                  hands-on software development to high-level project management.
+                </p>
+                <p>
+                  As a freelancer, I help organizations transform their data into actionable 
+                  insights while ensuring projects are delivered on time and within scope.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-slate-800/50 border-slate-700">
+              <CardHeader>
+                <CardTitle className="text-2xl text-cyan-400 flex items-center">
+                  <GraduationCap className="w-6 h-6 mr-2" />
+                  Education & Certifications
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4 text-slate-300">
+                <div className="flex items-center space-x-3">
+                  <Award className="w-5 h-5 text-purple-400" />
+                  <span>MBA in Project Management</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Award className="w-5 h-5 text-cyan-400" />
+                  <span>Bachelor's in Computer Science</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Award className="w-5 h-5 text-green-400" />
+                  <span>Data Analysis Certification</span>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Skills Section */}
+          <div className="mb-16">
+            <h2 className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+              Core Competencies
+            </h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              {skills.map((skillGroup, index) => (
+                <Card key={index} className="bg-slate-800/50 border-slate-700 hover:border-cyan-500/50 transition-all duration-300">
+                  <CardHeader>
+                    <CardTitle className="text-xl text-cyan-400 flex items-center">
+                      <skillGroup.icon className="w-6 h-6 mr-2" />
+                      {skillGroup.category}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-2">
+                      {skillGroup.items.map((skill, skillIndex) => (
+                        <div key={skillIndex} className="flex items-center space-x-2">
+                          <div className="w-2 h-2 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full"></div>
+                          <span className="text-slate-300">{skill}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* Experience Timeline */}
+          <div>
+            <h2 className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+              Professional Experience
+            </h2>
+            <div className="space-y-8">
+              {experience.map((exp, index) => (
+                <Card key={index} className="bg-slate-800/50 border-slate-700 hover:border-cyan-500/50 transition-all duration-300">
+                  <CardContent className="p-6">
+                    <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                      <div>
+                        <h3 className="text-xl font-semibold text-white">{exp.role}</h3>
+                        <p className="text-cyan-400">{exp.company}</p>
+                      </div>
+                      <span className="text-slate-400 text-sm mt-2 md:mt-0">{exp.period}</span>
+                    </div>
+                    <p className="text-slate-300">{exp.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default About;
