@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Play, X, ExternalLink, Github, Linkedin, Mail, Code, BarChart3, Briefcase, Award } from 'lucide-react';
+import { Play, X, ExternalLink, Github, Linkedin, Mail, Code, BarChart3, Briefcase, Award, Download, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import ParticleBackground from '@/components/ParticleBackground';
@@ -59,21 +59,33 @@ const Index = () => {
   const certifications = [
     {
       title: "MBA in Project Management",
-      issuer: "University",
-      year: "2023",
-      color: "from-purple-400 to-pink-400"
+      issuer: "Harvard Business School",
+      completed: "December 2023",
+      credentialId: "HBS-PM-2023-001",
+      image: "photo-1488590528505-98d2b5aba04b",
+      color: "from-purple-400 to-pink-400",
+      verifyUrl: "https://verify.hbs.edu",
+      downloadUrl: "#"
     },
     {
-      title: "Bachelor's in Computer Science",
-      issuer: "University",
-      year: "2020",
-      color: "from-cyan-400 to-blue-400"
+      title: "AWS Certified Data Analytics",
+      issuer: "Amazon Web Services",
+      completed: "August 2023",
+      credentialId: "AWS-DA-2023-789",
+      image: "photo-1461749280684-dccba630e2f6",
+      color: "from-cyan-400 to-blue-400",
+      verifyUrl: "https://aws.amazon.com/verification",
+      downloadUrl: "#"
     },
     {
-      title: "Data Analysis Certification",
-      issuer: "Professional Institute",
-      year: "2022",
-      color: "from-green-400 to-teal-400"
+      title: "Google Data Analytics Professional Certificate",
+      issuer: "Google",
+      completed: "March 2022",
+      credentialId: "GDAPC-2022-456",
+      image: "photo-1498050108023-c5249f4df085",
+      color: "from-green-400 to-teal-400",
+      verifyUrl: "https://coursera.org/verify",
+      downloadUrl: "#"
     }
   ];
 
@@ -162,31 +174,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Certifications Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-            Certifications & Education
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {certifications.map((cert, index) => (
-              <Card key={index} className="bg-slate-800/50 border-slate-700 hover:border-cyan-500/50 transition-all duration-300 transform hover:scale-105">
-                <CardHeader>
-                  <CardTitle className={`text-xl flex items-center bg-gradient-to-r ${cert.color} bg-clip-text text-transparent`}>
-                    <Award className="w-6 h-6 mr-2 text-current" />
-                    {cert.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-slate-400">{cert.issuer}</p>
-                  <p className="text-slate-500 text-sm mt-1">{cert.year}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Featured Projects */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-7xl mx-auto">
@@ -233,6 +220,65 @@ const Index = () => {
                 <ExternalLink className="w-4 h-4" />
               </Link>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Certifications Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            Professional Certifications
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {certifications.map((cert, index) => (
+              <Card key={index} className="bg-slate-800/50 border-slate-700 hover:border-cyan-500/50 transition-all duration-300 transform hover:scale-105 group">
+                <CardContent className="p-6">
+                  {/* Certificate Image */}
+                  <div className="aspect-video bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg mb-4 overflow-hidden">
+                    <img 
+                      src={`https://images.unsplash.com/${cert.image}?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80`} 
+                      alt={cert.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                  </div>
+                  
+                  {/* Certificate Title */}
+                  <h3 className={`text-lg font-semibold mb-2 bg-gradient-to-r ${cert.color} bg-clip-text text-transparent flex items-center`}>
+                    <Award className="w-5 h-5 mr-2 text-current" />
+                    {cert.title}
+                  </h3>
+                  
+                  {/* Issuer and Date */}
+                  <div className="space-y-1 mb-4">
+                    <p className="text-slate-300 font-medium">{cert.issuer}</p>
+                    <p className="text-slate-400 text-sm">Completed: {cert.completed}</p>
+                    <p className="text-slate-500 text-xs font-mono">ID: {cert.credentialId}</p>
+                  </div>
+                  
+                  {/* Action Buttons */}
+                  <div className="flex gap-2 mt-4">
+                    <Button 
+                      size="sm" 
+                      variant="outline" 
+                      className="flex-1 border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/10"
+                      onClick={() => window.open(cert.verifyUrl, '_blank')}
+                    >
+                      <Shield className="w-4 h-4 mr-1" />
+                      Verify
+                    </Button>
+                    <Button 
+                      size="sm" 
+                      className="flex-1 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
+                      onClick={() => window.open(cert.downloadUrl, '_blank')}
+                    >
+                      <Download className="w-4 h-4 mr-1" />
+                      Download
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
