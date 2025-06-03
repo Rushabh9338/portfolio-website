@@ -4,13 +4,16 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ExternalLink, Github, Eye, Filter } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import ParticleBackground from '@/components/ParticleBackground';
 
 const Projects = () => {
   const [filter, setFilter] = useState('All');
+  const navigate = useNavigate();
   
   const projects = [
     {
+      id: "ecommerce-analytics",
       title: "E-commerce Analytics Dashboard",
       description: "Comprehensive dashboard analyzing customer behavior, sales trends, and inventory management for a major e-commerce platform.",
       category: "Data Analysis",
@@ -21,6 +24,7 @@ const Projects = () => {
       caseStudy: true
     },
     {
+      id: "stock-predictor",
       title: "Real-time Stock Market Predictor",
       description: "Machine learning model that predicts stock movements using historical data and sentiment analysis.",
       category: "Data Science",
@@ -31,6 +35,7 @@ const Projects = () => {
       caseStudy: false
     },
     {
+      id: "customer-segmentation",
       title: "Customer Segmentation Platform",
       description: "Advanced customer segmentation system using clustering algorithms and behavioral analysis.",
       category: "Data Analysis",
@@ -41,6 +46,7 @@ const Projects = () => {
       caseStudy: true
     },
     {
+      id: "project-management-app",
       title: "Project Management React App",
       description: "Full-stack project management application with real-time collaboration features.",
       category: "Frontend Development",
@@ -51,6 +57,7 @@ const Projects = () => {
       caseStudy: false
     },
     {
+      id: "supply-chain-optimization",
       title: "Supply Chain Optimization",
       description: "Data-driven solution to optimize supply chain logistics and reduce operational costs.",
       category: "Data Analysis",
@@ -61,6 +68,7 @@ const Projects = () => {
       caseStudy: false
     },
     {
+      id: "healthcare-pipeline",
       title: "Healthcare Data Pipeline",
       description: "ETL pipeline for processing and analyzing healthcare data from multiple sources.",
       category: "Data Engineering",
@@ -193,7 +201,11 @@ const Projects = () => {
 
                   {/* Action Buttons */}
                   <div className="flex space-x-3 pt-4">
-                    <Button size="sm" className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600">
+                    <Button 
+                      size="sm" 
+                      className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600"
+                      onClick={() => navigate(`/projects/${project.id}`)}
+                    >
                       <Eye className="w-4 h-4 mr-2" />
                       View Details
                     </Button>
