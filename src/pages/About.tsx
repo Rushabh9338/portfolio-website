@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Code, BarChart3, Briefcase, GraduationCap, Award, Users } from 'lucide-react';
+import { Code, BarChart3, Briefcase, Users } from 'lucide-react';
 import ParticleBackground from '@/components/ParticleBackground';
 
 const About = () => {
@@ -49,6 +49,7 @@ const About = () => {
               <a href="/projects" className="hover:text-cyan-400 transition-colors">Projects</a>
               <a href="/blogs" className="hover:text-cyan-400 transition-colors">Blogs</a>
               <a href="/contact" className="hover:text-cyan-400 transition-colors">Contact</a>
+              <a href="/play-game" className="hover:text-cyan-400 transition-colors">Play Game</a>
             </div>
           </div>
         </div>
@@ -78,7 +79,7 @@ const About = () => {
           </div>
 
           {/* Bio Section */}
-          <div className="grid lg:grid-cols-2 gap-12 mb-16">
+          <div className="mb-16">
             <Card className="bg-slate-800/50 border-slate-700">
               <CardHeader>
                 <CardTitle className="text-2xl text-cyan-400 flex items-center">
@@ -96,29 +97,6 @@ const About = () => {
                   As a freelancer, I help organizations transform their data into actionable 
                   insights while ensuring projects are delivered on time and within scope.
                 </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-slate-800/50 border-slate-700">
-              <CardHeader>
-                <CardTitle className="text-2xl text-cyan-400 flex items-center">
-                  <GraduationCap className="w-6 h-6 mr-2" />
-                  Education & Certifications
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4 text-slate-300">
-                <div className="flex items-center space-x-3">
-                  <Award className="w-5 h-5 text-purple-400" />
-                  <span>MBA in Project Management</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Award className="w-5 h-5 text-cyan-400" />
-                  <span>Bachelor's in Computer Science</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Award className="w-5 h-5 text-green-400" />
-                  <span>Data Analysis Certification</span>
-                </div>
               </CardContent>
             </Card>
           </div>

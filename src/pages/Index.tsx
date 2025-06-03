@@ -1,9 +1,9 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Play, X, ExternalLink, Github, Linkedin, Mail, Code, BarChart3, Briefcase } from 'lucide-react';
+import { Play, X, ExternalLink, Github, Linkedin, Mail, Code, BarChart3, Briefcase, Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import ParticleBackground from '@/components/ParticleBackground';
 import DataGame from '@/components/DataGame';
 import LoadingBar from '@/components/LoadingBar';
@@ -56,6 +56,27 @@ const Index = () => {
     }
   ];
 
+  const certifications = [
+    {
+      title: "MBA in Project Management",
+      issuer: "University",
+      year: "2023",
+      color: "from-purple-400 to-pink-400"
+    },
+    {
+      title: "Bachelor's in Computer Science",
+      issuer: "University",
+      year: "2020",
+      color: "from-cyan-400 to-blue-400"
+    },
+    {
+      title: "Data Analysis Certification",
+      issuer: "Professional Institute",
+      year: "2022",
+      color: "from-green-400 to-teal-400"
+    }
+  ];
+
   if (showGame) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center">
@@ -82,6 +103,7 @@ const Index = () => {
               <Link to="/projects" className="hover:text-cyan-400 transition-colors">Projects</Link>
               <Link to="/blogs" className="hover:text-cyan-400 transition-colors">Blogs</Link>
               <Link to="/contact" className="hover:text-cyan-400 transition-colors">Contact</Link>
+              <Link to="/play-game" className="hover:text-cyan-400 transition-colors">Play Game</Link>
             </div>
           </div>
         </div>
@@ -136,6 +158,31 @@ const Index = () => {
             <a href="#" className="text-slate-400 hover:text-cyan-400 transition-colors transform hover:scale-110">
               <Mail className="w-6 h-6" />
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Certifications Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            Certifications & Education
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {certifications.map((cert, index) => (
+              <Card key={index} className="bg-slate-800/50 border-slate-700 hover:border-cyan-500/50 transition-all duration-300 transform hover:scale-105">
+                <CardHeader>
+                  <CardTitle className={`text-xl flex items-center bg-gradient-to-r ${cert.color} bg-clip-text text-transparent`}>
+                    <Award className="w-6 h-6 mr-2 text-current" />
+                    {cert.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-slate-400">{cert.issuer}</p>
+                  <p className="text-slate-500 text-sm mt-1">{cert.year}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
