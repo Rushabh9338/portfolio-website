@@ -1,9 +1,9 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Play, X, ExternalLink, Github, Linkedin, Mail, Code, BarChart3, Briefcase, Award, Download, Shield } from 'lucide-react';
+import { Play, X, ExternalLink, Github, Linkedin, Mail, Code, BarChart3, Briefcase, Award, Download, Shield, Database, Activity, TrendingUp, Grid } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import ParticleBackground from '@/components/ParticleBackground';
 import DataGame from '@/components/DataGame';
 import LoadingBar from '@/components/LoadingBar';
@@ -56,6 +56,21 @@ const Index = () => {
     }
   ];
 
+  const skills = [
+    { name: "Python", icon: Code, level: "Expert", color: "from-blue-400 to-blue-600" },
+    { name: "SQL", icon: Database, level: "Expert", color: "from-green-400 to-green-600" },
+    { name: "Power BI", icon: BarChart3, level: "Advanced", color: "from-yellow-400 to-yellow-600" },
+    { name: "Machine Learning", icon: Activity, level: "Advanced", color: "from-purple-400 to-purple-600" },
+    { name: "Data Analysis", icon: TrendingUp, level: "Expert", color: "from-cyan-400 to-cyan-600" },
+    { name: "Project Management", icon: Briefcase, level: "Advanced", color: "from-pink-400 to-pink-600" },
+    { name: "React", icon: Code, level: "Intermediate", color: "from-blue-400 to-cyan-400" },
+    { name: "Tableau", icon: BarChart3, level: "Advanced", color: "from-orange-400 to-orange-600" },
+    { name: "Apache Kafka", icon: Database, level: "Intermediate", color: "from-red-400 to-red-600" },
+    { name: "Excel", icon: Grid, level: "Expert", color: "from-green-500 to-emerald-500" },
+    { name: "Statistics", icon: Activity, level: "Advanced", color: "from-indigo-400 to-indigo-600" },
+    { name: "ETL", icon: Database, level: "Advanced", color: "from-teal-400 to-teal-600" }
+  ];
+
   const certifications = [
     {
       title: "MBA in Project Management",
@@ -85,6 +100,26 @@ const Index = () => {
       image: "photo-1498050108023-c5249f4df085",
       color: "from-green-400 to-teal-400",
       verifyUrl: "https://coursera.org/verify",
+      downloadUrl: "#"
+    },
+    {
+      title: "Microsoft Power BI Data Analyst",
+      issuer: "Microsoft",
+      completed: "January 2023",
+      credentialId: "MS-PBI-2023-123",
+      image: "photo-1551288049-bebda4e38f71",
+      color: "from-yellow-400 to-orange-400",
+      verifyUrl: "https://docs.microsoft.com/verify",
+      downloadUrl: "#"
+    },
+    {
+      title: "Tableau Desktop Specialist",
+      issuer: "Tableau",
+      completed: "June 2022",
+      credentialId: "TAB-DS-2022-567",
+      image: "photo-1460925895917-afdab827c52f",
+      color: "from-blue-400 to-purple-400",
+      verifyUrl: "https://www.tableau.com/verify",
       downloadUrl: "#"
     }
   ];
@@ -224,62 +259,101 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Skills Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            Technical Skills
+          </h2>
+          <Carousel className="w-full max-w-6xl mx-auto" opts={{ align: "start", loop: true }}>
+            <CarouselContent className="-ml-4">
+              {skills.map((skill, index) => {
+                const IconComponent = skill.icon;
+                return (
+                  <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                    <Card className="bg-slate-800/50 border-slate-700 hover:border-cyan-500/50 transition-all duration-300 transform hover:scale-105 group h-full">
+                      <CardContent className="p-6 flex flex-col items-center text-center">
+                        <div className={`w-16 h-16 rounded-full bg-gradient-to-r ${skill.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                          <IconComponent className="w-8 h-8 text-white" />
+                        </div>
+                        <h3 className="text-xl font-semibold text-white mb-2">{skill.name}</h3>
+                        <span className={`text-sm px-3 py-1 rounded-full bg-gradient-to-r ${skill.color} bg-opacity-20 text-white font-medium`}>
+                          {skill.level}
+                        </span>
+                      </CardContent>
+                    </Card>
+                  </CarouselItem>
+                );
+              })}
+            </CarouselContent>
+            <CarouselPrevious className="bg-slate-800 border-slate-600 text-white hover:bg-slate-700" />
+            <CarouselNext className="bg-slate-800 border-slate-600 text-white hover:bg-slate-700" />
+          </Carousel>
+        </div>
+      </section>
+
       {/* Certifications Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
             Professional Certifications
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {certifications.map((cert, index) => (
-              <Card key={index} className="bg-slate-800/50 border-slate-700 hover:border-cyan-500/50 transition-all duration-300 transform hover:scale-105 group">
-                <CardContent className="p-6">
-                  {/* Certificate Image */}
-                  <div className="aspect-video bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg mb-4 overflow-hidden">
-                    <img 
-                      src={`https://images.unsplash.com/${cert.image}?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80`} 
-                      alt={cert.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
-                  </div>
-                  
-                  {/* Certificate Title */}
-                  <h3 className={`text-lg font-semibold mb-2 bg-gradient-to-r ${cert.color} bg-clip-text text-transparent flex items-center`}>
-                    <Award className="w-5 h-5 mr-2 text-current" />
-                    {cert.title}
-                  </h3>
-                  
-                  {/* Issuer and Date */}
-                  <div className="space-y-1 mb-4">
-                    <p className="text-slate-300 font-medium">{cert.issuer}</p>
-                    <p className="text-slate-400 text-sm">Completed: {cert.completed}</p>
-                    <p className="text-slate-500 text-xs font-mono">ID: {cert.credentialId}</p>
-                  </div>
-                  
-                  {/* Action Buttons */}
-                  <div className="flex gap-2 mt-4">
-                    <Button 
-                      size="sm" 
-                      variant="outline" 
-                      className="flex-1 border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/10"
-                      onClick={() => window.open(cert.verifyUrl, '_blank')}
-                    >
-                      <Shield className="w-4 h-4 mr-1" />
-                      Verify
-                    </Button>
-                    <Button 
-                      size="sm" 
-                      className="flex-1 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
-                      onClick={() => window.open(cert.downloadUrl, '_blank')}
-                    >
-                      <Download className="w-4 h-4 mr-1" />
-                      Download
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          <Carousel className="w-full max-w-6xl mx-auto" opts={{ align: "start", loop: true }}>
+            <CarouselContent className="-ml-4">
+              {certifications.map((cert, index) => (
+                <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                  <Card className="bg-slate-800/50 border-slate-700 hover:border-cyan-500/50 transition-all duration-300 transform hover:scale-105 group h-full">
+                    <CardContent className="p-6">
+                      {/* Certificate Image */}
+                      <div className="aspect-video bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg mb-4 overflow-hidden">
+                        <img 
+                          src={`https://images.unsplash.com/${cert.image}?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80`} 
+                          alt={cert.title}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                        />
+                      </div>
+                      
+                      {/* Certificate Title */}
+                      <h3 className={`text-lg font-semibold mb-2 bg-gradient-to-r ${cert.color} bg-clip-text text-transparent flex items-center`}>
+                        <Award className="w-5 h-5 mr-2 text-current" />
+                        {cert.title}
+                      </h3>
+                      
+                      {/* Issuer and Date */}
+                      <div className="space-y-1 mb-4">
+                        <p className="text-slate-300 font-medium">{cert.issuer}</p>
+                        <p className="text-slate-400 text-sm">Completed: {cert.completed}</p>
+                        <p className="text-slate-500 text-xs font-mono">ID: {cert.credentialId}</p>
+                      </div>
+                      
+                      {/* Action Buttons */}
+                      <div className="flex gap-2 mt-4">
+                        <Button 
+                          size="sm" 
+                          variant="outline" 
+                          className="flex-1 border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/10"
+                          onClick={() => window.open(cert.verifyUrl, '_blank')}
+                        >
+                          <Shield className="w-4 h-4 mr-1" />
+                          Verify
+                        </Button>
+                        <Button 
+                          size="sm" 
+                          className="flex-1 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
+                          onClick={() => window.open(cert.downloadUrl, '_blank')}
+                        >
+                          <Download className="w-4 h-4 mr-1" />
+                          Download
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="bg-slate-800 border-slate-600 text-white hover:bg-slate-700" />
+            <CarouselNext className="bg-slate-800 border-slate-600 text-white hover:bg-slate-700" />
+          </Carousel>
         </div>
       </section>
     </div>
