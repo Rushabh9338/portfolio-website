@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Play, X, ExternalLink, Github, Linkedin, Mail, Code, BarChart3, Briefcase, Award, Download, Shield, Database, Activity, TrendingUp, Grid } from 'lucide-react';
@@ -270,7 +271,7 @@ const Index = () => {
               {skills.map((skill, index) => {
                 const IconComponent = skill.icon;
                 return (
-                  <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                  <CarouselItem key={index} className="pl-4 basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6 2xl:basis-1/7">
                     <Card className="bg-slate-800/50 border-slate-700 hover:border-cyan-500/50 transition-all duration-300 transform hover:scale-105 group h-full">
                       <CardContent className="p-6 flex flex-col items-center text-center">
                         <div className={`w-16 h-16 rounded-full bg-gradient-to-r ${skill.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
