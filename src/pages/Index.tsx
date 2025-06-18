@@ -1,5 +1,6 @@
+
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Play, X, ExternalLink, Github, Linkedin, Mail, Code, BarChart3, Briefcase, Award, Download, Shield, Database, Activity, TrendingUp, Grid } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -7,25 +8,11 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import ParticleBackground from '@/components/ParticleBackground';
 import DataGame from '@/components/DataGame';
 import LoadingBar from '@/components/LoadingBar';
-import RevolvingSocialIcon from '@/components/RevolvingSocialIcon';
 
 const Index = () => {
-  const location = useLocation();
-  const [showGame, setShowGame] = useState(false);
+  const [showGame, setShowGame] = useState(true);
   const [gameCompleted, setGameCompleted] = useState(false);
   const [loadingProgress, setLoadingProgress] = useState(0);
-  const [hasVisitedBefore, setHasVisitedBefore] = useState(false);
-
-  useEffect(() => {
-    // Check if user has visited before
-    const hasVisited = localStorage.getItem('hasVisitedPortfolio');
-    setHasVisitedBefore(!!hasVisited);
-    
-    // Only show game if it's first visit and coming from root path
-    if (!hasVisited && (location.pathname === '/' || location.pathname === '')) {
-      setShowGame(true);
-    }
-  }, [location.pathname]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -43,7 +30,6 @@ const Index = () => {
 
   const handleGameComplete = () => {
     setGameCompleted(true);
-    localStorage.setItem('hasVisitedPortfolio', 'true');
     setTimeout(() => setShowGame(false), 1000);
   };
 
@@ -209,11 +195,17 @@ const Index = () => {
             </Button>
           </div>
 
-          {/* Social Links with Revolving Effect */}
+          {/* Social Links */}
           <div className="flex justify-center space-x-6">
-            <RevolvingSocialIcon icon={Github} href="#" label="GitHub" />
-            <RevolvingSocialIcon icon={Linkedin} href="#" label="LinkedIn" />
-            <RevolvingSocialIcon icon={Mail} href="#" label="Email" />
+            <a href="#" className="text-slate-400 hover:text-cyan-400 transition-colors transform hover:scale-110">
+              <Github className="w-6 h-6" />
+            </a>
+            <a href="#" className="text-slate-400 hover:text-cyan-400 transition-colors transform hover:scale-110">
+              <Linkedin className="w-6 h-6" />
+            </a>
+            <a href="#" className="text-slate-400 hover:text-cyan-400 transition-colors transform hover:scale-110">
+              <Mail className="w-6 h-6" />
+            </a>
           </div>
         </div>
       </section>
