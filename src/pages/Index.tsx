@@ -8,6 +8,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import ParticleBackground from '@/components/ParticleBackground';
 import DataGame from '@/components/DataGame';
 import LoadingBar from '@/components/LoadingBar';
+import NavBar from '@/components/NavBar';
 
 const Index = () => {
   const [showGame, setShowGame] = useState(true);
@@ -138,24 +139,7 @@ const Index = () => {
       <ParticleBackground />
       <LoadingBar progress={loadingProgress} />
       
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-slate-900/80 backdrop-blur-lg border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-              Portfolio
-            </div>
-            <div className="hidden md:flex space-x-8">
-              <Link to="/" className="hover:text-cyan-400 transition-colors">Home</Link>
-              <Link to="/about" className="hover:text-cyan-400 transition-colors">About</Link>
-              <Link to="/projects" className="hover:text-cyan-400 transition-colors">Projects</Link>
-              <Link to="/blogs" className="hover:text-cyan-400 transition-colors">Blogs</Link>
-              <Link to="/contact" className="hover:text-cyan-400 transition-colors">Contact</Link>
-              <Link to="/play-game" className="hover:text-cyan-400 transition-colors">Play Game</Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <NavBar/>
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 relative z-10">

@@ -7,6 +7,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Mail, Phone, MapPin, Send, Linkedin, Github, Calendar } from 'lucide-react';
 import ParticleBackground from '@/components/ParticleBackground';
 import { useToast } from '@/hooks/use-toast';
+import NavBar from '@/components/NavBar';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -55,24 +56,7 @@ const Contact = () => {
     <div className="min-h-screen bg-slate-900 text-white relative">
       <ParticleBackground />
       
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-slate-900/80 backdrop-blur-lg border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-              Portfolio
-            </div>
-            <div className="hidden md:flex space-x-8">
-              <a href="/" className="hover:text-cyan-400 transition-colors">Home</a>
-              <a href="/about" className="hover:text-cyan-400 transition-colors">About</a>
-              <a href="/projects" className="hover:text-cyan-400 transition-colors">Projects</a>
-              <a href="/blogs" className="hover:text-cyan-400 transition-colors">Blogs</a>
-              <a href="/contact" className="text-cyan-400">Contact</a>
-              <a href="/play-game" className="hover:text-cyan-400 transition-colors">Play Game</a>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <NavBar/>
 
       <div className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-7xl mx-auto">
