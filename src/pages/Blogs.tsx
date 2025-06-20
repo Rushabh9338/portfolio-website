@@ -89,6 +89,7 @@ const Blogs = () => {
               <a href="/projects" className="hover:text-cyan-400 transition-colors">Projects</a>
               <a href="/blogs" className="text-cyan-400">Blogs</a>
               <a href="/contact" className="hover:text-cyan-400 transition-colors">Contact</a>
+              <a href="/play-game" className="hover:text-cyan-400 transition-colors">Play Game</a>
             </div>
           </div>
         </div>

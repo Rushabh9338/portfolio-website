@@ -68,6 +68,7 @@ const Contact = () => {
               <a href="/projects" className="hover:text-cyan-400 transition-colors">Projects</a>
               <a href="/blogs" className="hover:text-cyan-400 transition-colors">Blogs</a>
               <a href="/contact" className="text-cyan-400">Contact</a>
+              <a href="/play-game" className="hover:text-cyan-400 transition-colors">Play Game</a>
             </div>
           </div>
         </div>

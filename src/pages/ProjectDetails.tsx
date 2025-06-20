@@ -230,6 +230,7 @@ const ProjectDetails = () => {
               <a href="/projects" className="text-cyan-400">Projects</a>
               <a href="/blogs" className="hover:text-cyan-400 transition-colors">Blogs</a>
               <a href="/contact" className="hover:text-cyan-400 transition-colors">Contact</a>
+              <a href="/play-game" className="hover:text-cyan-400 transition-colors">Play Game</a>
             </div>
           </div>
         </div>
