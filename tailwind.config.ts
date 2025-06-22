@@ -101,6 +101,7 @@ export default {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.6s ease-out',
+				'spin-slow': 'spin 10s linear infinite',
 			}
 		}
 	},

@@ -181,15 +181,66 @@ const Index = () => {
 
           {/* Social Links */}
           <div className="flex justify-center space-x-6">
-            <a href="#" className="text-slate-400 hover:text-cyan-400 transition-colors transform hover:scale-110">
-              <Github className="w-6 h-6" />
-            </a>
-            <a href="#" className="text-slate-400 hover:text-cyan-400 transition-colors transform hover:scale-110">
-              <Linkedin className="w-6 h-6" />
-            </a>
-            <a href="#" className="text-slate-400 hover:text-cyan-400 transition-colors transform hover:scale-110">
-              <Mail className="w-6 h-6" />
-            </a>
+              <div className="relative group w-10 h-10 flex items-center justify-center">
+                  <a href="#" className="text-slate-400 hover:text-cyan-400 transition-colors transform hover:scale-110 z-10">
+                      <Github className="w-6 h-6" />
+                  </a>
+
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                      <div className="opacity-0 group-hover:opacity-100 transition-opacity animate-spin-slow">
+                          <svg viewBox="0 0 100 100" className="w-24 h-24">
+                              <defs>
+                                  <path id="circlePath" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" />
+                              </defs>
+                              <text fill="#22d3ee" fontSize="18" fontFamily="sans-serif">
+                                  <textPath href="#circlePath">
+                                      • GitHub • GitHub • GitHub • GitHub •
+                                  </textPath>
+                              </text>
+                          </svg>
+                      </div>
+                  </div>
+              </div>
+              <div className="relative group w-10 h-10 flex items-center justify-center">
+                  <a href="#" className="text-slate-400 hover:text-cyan-400 transition-colors transform hover:scale-110 z-10">
+                      <Linkedin className="w-6 h-6" />
+                  </a>
+
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                      <div className="opacity-0 group-hover:opacity-100 transition-opacity animate-spin-slow">
+                          <svg viewBox="0 0 100 100" className="w-24 h-24">
+                              <defs>
+                                  <path id="circlePath" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" />
+                              </defs>
+                              <text fill="#22d3ee" fontSize="16" fontFamily="sans-serif">
+                                  <textPath href="#circlePath">
+                                      • Linkedin • Linkedin • Linkedin • Linkedin •
+                                  </textPath>
+                              </text>
+                          </svg>
+                      </div>
+                  </div>
+              </div>
+              <div className="relative group w-10 h-10 flex items-center justify-center">
+                  <a href="#" className="text-slate-400 hover:text-cyan-400 transition-colors transform hover:scale-110 z-10">
+                      <Mail className="w-6 h-6" />
+                  </a>
+
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                      <div className="opacity-0 group-hover:opacity-100 transition-opacity animate-spin-slow">
+                          <svg viewBox="0 0 100 100" className="w-24 h-24">
+                              <defs>
+                                  <path id="circlePath" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" />
+                              </defs>
+                              <text fill="#22d3ee" fontSize="20" fontFamily="sans-serif">
+                                  <textPath href="#circlePath">
+                                      • Mail • Mail • Mail • Mail •
+                                  </textPath>
+                              </text>
+                          </svg>
+                      </div>
+                  </div>
+              </div>
           </div>
         </div>
       </section>
